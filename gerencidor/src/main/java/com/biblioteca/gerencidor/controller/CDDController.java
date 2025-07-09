@@ -1,0 +1,24 @@
+package com.biblioteca.gerencidor.controller;
+
+import com.biblioteca.gerencidor.model.CDD;
+import com.biblioteca.gerencidor.service.CDDService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/cdd")
+public class CDDController {
+
+    @Autowired
+    private CDDService cddService;
+
+    @PostMapping
+    public ResponseEntity<CDD> cadastrarCdd(@RequestBody CDD cdd){
+        return ResponseEntity.status(HttpStatus.CREATED).body(cddService.insertCDD(cdd));
+    }
+}
