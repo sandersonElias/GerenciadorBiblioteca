@@ -7,6 +7,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LivroRepository  extends JpaRepository<Livro, Long> {
+public interface LivroRepository extends JpaRepository<Livro, Long> {
+  List<Livro> findByTituloContainingIgnoreCase(String titulo);
 
+  List<Livro> findByAutor_NomeContainingIgnoreCase(String nomeAutor);
+
+  List<Livro> findByAutorContainingIgnoreCase(String autor);
+
+  List<Livro> findByEditoraContainingIgnoreCase(String editora);
 }
