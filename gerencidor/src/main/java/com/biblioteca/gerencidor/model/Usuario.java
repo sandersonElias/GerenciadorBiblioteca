@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Usuario{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "numero_matricula")
     private long id;
 
     @Column
