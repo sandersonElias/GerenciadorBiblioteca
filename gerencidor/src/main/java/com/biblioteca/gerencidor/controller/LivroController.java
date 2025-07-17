@@ -23,6 +23,7 @@ public class LivroController {
         return ResponseEntity.status(HttpStatus.CREATED).body(novoLivro);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/buscar/autor")
     public ResponseEntity<List<Livro>> buscarPorAutor(@RequestParam String autor){
         List<Livro> livros = livroService.buscarLivroAutor(autor);
@@ -36,18 +37,21 @@ public class LivroController {
         return ResponseEntity.ok(livros);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/buscar/editora")
     public ResponseEntity<List<Livro>> buscarPorEditora(@RequestParam String editora){
         List<Livro> livros = livroService.buscarLivroEditora(editora);
         return ResponseEntity.ok(livros);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/buscar/genero")
     public ResponseEntity<List<Livro>> buscarPorGenero(@RequestParam String genero){
         List<Livro> livros = livroService.buscarLivroGenero(genero);
         return ResponseEntity.ok(livros);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/buscar/catalogacao")
     public ResponseEntity<List<Livro>> buscarPorCatalogacao(@RequestParam String catalogacao){
         List<Livro> livros = livroService.buscarLivroCatalogacao(catalogacao);
